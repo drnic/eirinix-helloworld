@@ -1,6 +1,8 @@
 # Example Hello World EiriniX extension
 
-Eirini is an extension for Cloud Foundry that runs applications as statefulsets/pods within Kubernetes. This in turn allows operators to extend the behavior of their own Cloud Foundry platform with mutating webhooks - when a pod is created by Eirini, our bespoke webhook can be run to mutate the pod before it commences.
+Eirini is an extension for Cloud Foundry that runs applications as statefulsets/pods within Kubernetes. This in turn allows operators to extend the behavior of their own Cloud Foundry platform with mutating webhooks - when a pod is created by Eirini, our bespoke webhook can be run to mutate the pod before it commences. 
+
+One convenient starting point for writing mutating webhooks for Eirini-managed Pods is the SUSE [EiriniX](https://github.com/SUSE/eirinix) library (see [blog post](https://www.cloudfoundry.org/blog/introducing-eirinix-how-to-build-eirini-extensions/)).
 
 In this project we have a mutating webhook that adds an environment variable `STICKY_MESSAGE` to each Eirini pod.
 
