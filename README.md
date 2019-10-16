@@ -14,6 +14,8 @@ This EiriniX extension should work with any Cloud Foundry/Eirini, including:
 * Any open source Cloud Foundry with [Eirini Release included](https://documentation.suse.com/suse-cap/1/html/cap-guides/cha-cap-depl-eirini.html#sec-cap-eirini-enable).
 * Stark & Wayne's [Bootstrap Kubernetes Demos](https://documentation.suse.com/suse-cap/1/html/cap-guides/cha-cap-depl-eirini.html#sec-cap-eirini-enable) with `--scf` flag to run Cloud Foundry/Eirini on your Kubernetes cluster.
 
+This repo is a rewrite of [EiriniX Sample](https://github.com/SUSE/eirinix-sample/) for the benefit of my comprehension of what was going on. I think it is also a simpler implementation and simpler deployment story.
+
 ## Demonstration without Eirini on any Kubernetes
 
 We can see this Hello World EiriniX extension running without Cloud Foundry nor Eirini itself. It will deploy the webhook and sample application into the `default` namespace. We will clean up at the end.
