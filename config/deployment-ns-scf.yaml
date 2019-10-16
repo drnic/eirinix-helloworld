@@ -1,5 +1,5 @@
-# The webhook runs in "default" namespace
-# Looking for pods running in "default" namespace too
+# The webhook runs in "scf" namespace
+# Looking for pods running in "scf-eirini"
 ---
 apiVersion: v1
 kind: List
@@ -20,7 +20,7 @@ items:
     apiVersion: rbac.authorization.k8s.io/v1
     metadata:
       name: "eirini-helloworld-extension"
-      namespace: "default"
+      namespace: "scf"
     roleRef:
       kind: ClusterRole
       name: "eirini-helloworld-extension"
@@ -28,19 +28,19 @@ items:
     subjects:
     - kind: ServiceAccount
       name: "eirini-helloworld-extension"
-      namespace: "default"
+      namespace: "scf"
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: "eirini-helloworld-extension"
-  namespace: default
+  namespace: scf
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: eirini-helloworld-extension
-  namespace: default
+  namespace: scf
 subjects:
 - kind: ServiceAccount
   name: eirini-helloworld-extension
@@ -54,7 +54,7 @@ kind: Role
 metadata:
   creationTimestamp: null
   name: eirini-helloworld-extension
-  namespace: default
+  namespace: scf
 rules:
 - apiGroups:
   - ""
@@ -74,7 +74,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: eirini-helloworld-extension-service
-  namespace: default
+  namespace: scf
 spec:
   selector:
     app: eirini-helloworld-extension
@@ -87,7 +87,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: eirini-helloworld-extension
-  namespace: default
+  namespace: scf
 spec:
   replicas: 1
   template:
@@ -99,12 +99,12 @@ spec:
       containers:
       - image: drnic/eirinix-sample:latest
         name: eirini-helloworld-extension
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: WEBHOOK_SERVICE_NAME
           value: eirini-helloworld-extension-service
         - name: WEBHOOK_NAMESPACE
-          value: default
+          value: scf
         - name: POD_NAMESPACE
-          value: default
+          value: scf-eirini
       restartPolicy: Always
