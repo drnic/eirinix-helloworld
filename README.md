@@ -130,4 +130,4 @@ kubectl apply -f config/deployment-ns-default.yaml
 
 Any previously generated `mutatingwebhook` and `secret` will be kept (these must be explicitly deleted to be removed).
 
-See [Tearing it down](#tearing-it-down) for cleanup of webhook, secret, and `mutatingwebhookconfiguration`.
+See [Tear it down](#tear-it-down) for cleanup of webhook, secret, and `mutatingwebhookconfiguration`.
