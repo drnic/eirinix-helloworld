@@ -114,7 +114,6 @@ kubectl delete mutatingwebhookconfigurations eirini-x-drnic-helloworld-mutating-
 kubectl delete secret eirini-x-drnic-helloworld-setupcertificate -n scf-eirini
 ```
 
-
 ## Developers
 
 Our EiriniX webhook above is installed as a Kubernetes deployment, so we need to package this source code as an OCI/Docker image. There is no `Dockerfile`. I'm trying to ween myself off them and the mystery meat they may contain.
@@ -132,6 +131,6 @@ kubectl delete -f config/deployment-ns-default.yaml
 kubectl apply -f config/deployment-ns-default.yaml
 ```
 
-Any previously generated `mutatingwebhook` and `secret` will be kept (these must be explicitly deleted to be removed).
+Any previously generated `mutatingwebhookconfiguration` and `secret` will be kept (these must be explicitly deleted to be removed).
 
 See [Tear it down](#tear-it-down) for cleanup of webhook, secret, and `mutatingwebhookconfiguration`.
