@@ -97,7 +97,7 @@ spec:
     spec:
       serviceAccountName: "eirini-helloworld-extension"
       containers:
-      - image: drnic/eirinix-sample:latest
+      - image: drnic/eirinix-helloworld:latest
         name: eirini-helloworld-extension
         imagePullPolicy: Always
         env:

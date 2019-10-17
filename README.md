@@ -83,7 +83,7 @@ In the `Deployment` spec for the webhook container we can see that we set `POD_N
 
 ```yaml
 containers:
-- image: drnic/eirinix-sample:latest
+- image: drnic/eirinix-helloworld:latest
   name: eirini-helloworld-extension
   imagePullPolicy: IfNotPresent
   env:
@@ -121,7 +121,7 @@ Our EiriniX webhook above is installed as a Kubernetes deployment, so we need to
 Instead we will use [Cloud Native Buildpacks](https://buildpacks.io), and the [`pack` CLI](https://buildpacks.io/docs/install-pack/):
 
 ```plain
-pack build drnic/eirinix-sample --builder cloudfoundry/cnb:bionic --publish
+pack build drnic/eirinix-helloworld --builder cloudfoundry/cnb:bionic --publish
 ```
 
 One way to "update" the webhook is to delete and re-apply the service:
