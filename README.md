@@ -119,7 +119,7 @@ kubectl delete secret eirini-x-drnic-helloworld-setupcertificate -n scf-eirini
 
 Our EiriniX webhook above is installed as a Kubernetes deployment, so we need to package this source code as an OCI/Docker image. There is no `Dockerfile`. I'm trying to ween myself off them and the mystery meat they may contain.
 
-Instead we will use [Cloud Native Buildpacks](pack build drnic/eirinix-sample --builder cloudfoundry/cnb:bionic), and the [`pack` CLI](https://buildpacks.io/docs/install-pack/):
+Instead we will use [Cloud Native Buildpacks](https://buildpacks.io), and the [`pack` CLI](https://buildpacks.io/docs/install-pack/):
 
 ```plain
 pack build drnic/eirinix-sample --builder cloudfoundry/cnb:bionic --publish
