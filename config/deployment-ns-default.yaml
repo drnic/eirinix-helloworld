@@ -83,13 +83,16 @@ spec:
     port: 443
     targetPort: 4545
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: eirini-helloworld-extension
   namespace: default
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: eirini-helloworld-extension
   template:
     metadata:
       labels:
